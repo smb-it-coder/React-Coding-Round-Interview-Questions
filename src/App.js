@@ -1,29 +1,31 @@
 import React, { useState } from 'react';
 import './style.css';
-
+/*
+Differences between forEach() and map() methods:
+The forEach() method does not returns a new array based on the given array. The map() method returns an entirely new array. The forEach() method returns “undefined“. The map() method returns the newly created array according to the provided callback function.1
+*/
 const numArr = [1, 2, 3];
-
 const res = numArr.map((el) => el * 2);
-console.log(numArr, res); // [1, 2, 3] [2, 4, 6]
+console.log(numArr, res);
 
-const res2 = numArr.forEach((el, i, arr) => (arr[i] = el * 2));
-console.log(numArr, res2); // [2, 4, 6] undefined
+const res2 = numArr.forEach((val, i, arr) => (arr[i] = val * 2));
+console.log(numArr, res2);
 
-const obj = {
-  name: 'Ram',
-  age: 21,
-  printInfo: function () {
-    console.log(`My name is ${this.name}, and my age is ${this.age}`);
-  },
-};
-
-obj.printInfo(); // My name is Ram, and my age is 21
+const person = {
+  name: "Deepak",
+  age: 28,
+  printInfo: function() {
+    console.log(`My name is ${this.name} and my age is ${this.age}`);
+  }
+}
+person.printInfo()
 
 export default function App() {
-  const ERROR_MSG = 'Age is must be greater than 18';
+  const ERROR_MSG = 'Age is less than 18';
   const [text, setText] = useState('');
   const [isError, setError] = useState(false);
-  const handleTextInput = (e) => {
+
+  const handleInputError = (e) => {
     setError(false);
     console.log(e.target.value);
     setText(e.target.value);
@@ -33,7 +35,7 @@ export default function App() {
   };
   return (
     <div>
-      <input value={text} onChange={handleTextInput} />
+      <input type={text} onChange={handleInputError} />
       <br />
       {isError ? ERROR_MSG : null}
     </div>
