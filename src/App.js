@@ -4,6 +4,9 @@ import './style.css';
 Differences between forEach() and map() methods:
 The forEach() method does not returns a new array based on the given array. The map() method returns an entirely new array. The forEach() method returns “undefined“. The map() method returns the newly created array according to the provided callback function.1
 */
+
+// ======Map vs forEach===========
+
 const numArr = [1, 2, 3];
 const res = numArr.map((el) => el * 2);
 console.log(numArr, res);
@@ -12,13 +15,13 @@ const res2 = numArr.forEach((val, i, arr) => (arr[i] = val * 2));
 console.log(numArr, res2);
 
 const person = {
-  name: "Deepak",
+  name: 'Deepak',
   age: 28,
-  printInfo: function() {
+  printInfo: function () {
     console.log(`My name is ${this.name} and my age is ${this.age}`);
-  }
-}
-person.printInfo()
+  },
+};
+person.printInfo();
 
 export default function App() {
   const ERROR_MSG = 'Age is less than 18';
@@ -42,42 +45,44 @@ export default function App() {
   );
 }
 
+// ============Merge 2 duplicate array and sort===========
+
 const sortDup = (arr) => {
   const removeDup = (arr) => {
     let uniq_arr = [];
-    for(let i=0;i<arr.length;i++){
-        let isUniq = false;
-        let element = arr[i];
-        // debugger
-        for(let j=0;j<uniq_arr.length;j++){
-          if(element===uniq_arr[j]){
-            isUniq = true;
-            break;
-          }
+    for (let i = 0; i < arr.length; i++) {
+      let isUniq = false;
+      let element = arr[i];
+      // debugger
+      for (let j = 0; j < uniq_arr.length; j++) {
+        if (element === uniq_arr[j]) {
+          isUniq = true;
+          break;
         }
-        if(!isUniq){
-          uniq_arr.push(element);
-        }
+      }
+      if (!isUniq) {
+        uniq_arr.push(element);
+      }
     }
     return uniq_arr;
-  }
+  };
   var newArr = removeDup(arr);
   const sorting = (newArr) => {
-    for(let i=0;i<newArr.length;i++){ 
-      for(let j=0;newArr.length-i;j++){
-        if(newArr[j]>newArr[j+1]){
+    for (let i = 0; i < newArr.length; i++) {
+      for (let j = 0; newArr.length - i; j++) {
+        if (newArr[j] > newArr[j + 1]) {
           // [newArr[j], newArr[j+1]] = [newArr[j+1], newArr[j]];
           let temp = newArr[j];
-          newArr[j] = newArr[j+1];
-          newArr[j+1] = temp;
+          newArr[j] = newArr[j + 1];
+          newArr[j + 1] = temp;
         }
       }
     }
     return sorting(newArr);
-  }
+  };
   return newArr;
-}
-var Arr_A=["Ramesh","Suresh","Deepak","Suresh","Gopi"];
-var Arr_B=["Gopi","vendeesh","Deepak","Vedneesh"];
+};
+var Arr_A = ['Ramesh', 'Suresh', 'Deepak', 'Suresh', 'Gopi'];
+var Arr_B = ['Gopi', 'vendeesh', 'Deepak', 'Vedneesh'];
 var arr = [...Arr_A, ...Arr_B];
 console.log(sortDup(arr));
