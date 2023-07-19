@@ -45,6 +45,4 @@ export default function App() {
   );
 }
 
-// ============Merge 2 duplicate array and sort===========
-
 
