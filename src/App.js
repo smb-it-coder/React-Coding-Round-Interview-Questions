@@ -69,7 +69,7 @@ const removeDup = (arr) => {
 
 const sortDup = (newArr) => {
   for (let i = 0; i < newArr.length; i++) {
-    for (let j = 0; newArr.length - i; j++) {
+    for (let j = 0; j < newArr.length - i; j++) { // on this line j < condition missed that is case it would be exhausted memory issue
       if (newArr[j] > newArr[j + 1]) {
         // [newArr[j], newArr[j + 1]] = [newArr[j + 1], newArr[j]];
         let temp = newArr[j];
