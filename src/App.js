@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import './style.css';
 /*
 Differences between forEach() and map() methods:
-The forEach() method does not returns a new array based on the given array. The map() method returns an entirely new array. The forEach() method returns “undefined“. The map() method returns the newly created array according to the provided callback function.1
+The forEach() method does not returns a new array based on the given array. 
+ The map() method returns an entirely new array. The forEach() method returns “undefined“. 
+ The map() method returns the newly created array according to the provided callback function.1
 */
 
 // ======Map vs forEach===========
